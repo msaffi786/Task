@@ -2,9 +2,9 @@ const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.book;
 
-// Post a Book
+
 exports.create = (req, res) => {
-  // Save to MySQL database
+ 
   Book.create({
     name: req.body.name,
     price: req.body.price,
@@ -18,10 +18,9 @@ exports.create = (req, res) => {
   });
 };
 
-// Get all books
+
 exports.findAll = (req, res) => {
   Book.findAll().then((books) => {
-    // Send all books as response
     res.status(200).json({
       status: true,
       data: books,
@@ -29,7 +28,7 @@ exports.findAll = (req, res) => {
   });
 };
 
-// Find a book by Id
+
 exports.findByPk = (req, res) => {
   Book.findByPk(req.params.bookId).then((book) => {
     res.status(200).json({
@@ -39,7 +38,7 @@ exports.findByPk = (req, res) => {
   });
 };
 
-// Update a book
+
 exports.update = (req, res) => {
   const id = req.params.bookId;
   Book.update(
@@ -58,7 +57,7 @@ exports.update = (req, res) => {
   });
 };
 
-// Delete a book by Id
+
 exports.delete = (req, res) => {
   const id = req.params.bookId;
   Book.destroy({
