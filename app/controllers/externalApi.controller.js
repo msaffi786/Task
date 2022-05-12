@@ -1,9 +1,6 @@
 const http = require('https');
 const url = "https://jsonplaceholder.typicode.com/posts";
 
-exports.getAll = http.get(url, function (response) {
-    
-    const posts = response.data;
-    console.log(posts);
-
-});
+exports.getAll = (req,res) => { const data = http.get(url); 
+    res.status(200).json(data);
+};
